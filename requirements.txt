@@ -3,3 +3,4 @@ numpy
 tensorflow
 stqdm
 doodleverse_utils
+matplotlib
