@@ -51,8 +51,8 @@ from skimage.transform import resize
 from skimage.io import imsave
 from skimage.filters import threshold_otsu
 
-from doodleverse_utils.prediction_imports import *
-from doodleverse_utils.imports import *
+# from doodleverse_utils.prediction_imports import *
+from doodleverse_utils.imports import standardize, label_to_colors #*
 from PIL import Image
 #============================================================
 # =========================================================
