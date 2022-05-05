@@ -65,7 +65,7 @@ model = tf.keras.models.load_model(filepath, compile = True)
 
 #segmentation
 def do_compute(images_list, dims=(768, 1024)):
-    for k in stqdm(range(len(images_list))):
+    for counter, k in enumerate(stqdm(range(len(images_list)))):
         # st.session_state.img_idx=k
 
         input_img = images_list[k]
@@ -100,7 +100,7 @@ def do_compute(images_list, dims=(768, 1024)):
         mask = (pred[:,:,1]>=thres_land).astype('uint8')
 
         #mask = np.argmax(pred,-1)
-        imsave("greyscale_out.png", mask*255)
+        imsave("greyscale_out_"+str(counter)+".png", mask*255)
         
         class_label_colormap = [
             "#3366CC",
@@ -127,7 +127,7 @@ def do_compute(images_list, dims=(768, 1024)):
             do_alpha=False,
         )
         
-        imsave("color_out.png", color_label)
+        imsave("color_out_"+str(counter)+".png", color_label)
         
         #overlay plot
         #plt.figure(figsize=(8,8))
@@ -136,7 +136,7 @@ def do_compute(images_list, dims=(768, 1024)):
         plt.imshow(color_label, alpha=0.4)
         plt.axis("off")
         plt.margins(x=0, y=0)
-        plt.savefig("overlay_out.png", dpi=300, bbox_inches="tight")    
+        plt.savefig("overlay_out_"+str(counter)+".png", dpi=300, bbox_inches="tight")    
         #return plt 
 
 
