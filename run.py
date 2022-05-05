@@ -100,7 +100,7 @@ def do_compute(images_list, dims=(768, 1024)):
         mask = (pred[:,:,1]>=thres_land).astype('uint8')
 
         #mask = np.argmax(pred,-1)
-        imsave(input_img+"greyscale_out.png", mask*255)
+        # imsave(input_img+"greyscale_out.png", mask*255)
         
         class_label_colormap = [
             "#3366CC",
