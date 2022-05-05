@@ -100,7 +100,7 @@ def do_compute(images_list, dims=(768, 1024)):
         mask = (pred[:,:,1]>=thres_land).astype('uint8')
 
         #mask = np.argmax(pred,-1)
-        imsave(infile+"greyscale_out.png", mask*255)
+        imsave(input_img+"greyscale_out.png", mask*255)
         
         class_label_colormap = [
             "#3366CC",
@@ -127,7 +127,7 @@ def do_compute(images_list, dims=(768, 1024)):
             do_alpha=False,
         )
         
-        imsave(infile+"color_out.png", color_label)
+        imsave(input_img+"color_out.png", color_label)
         
         #overlay plot
         #plt.figure(figsize=(8,8))
@@ -136,7 +136,7 @@ def do_compute(images_list, dims=(768, 1024)):
         plt.imshow(color_label, alpha=0.4)
         plt.axis("off")
         plt.margins(x=0, y=0)
-        plt.savefig(infile+"overlay_out.png", dpi=300, bbox_inches="tight")    
+        plt.savefig(input_img+"overlay_out.png", dpi=300, bbox_inches="tight")    
         #return plt 
 
 
