@@ -127,7 +127,7 @@ def do_compute(images_list, dims=(768, 1024)):
             do_alpha=False,
         )
         
-        imsave(input_img+"color_out.png", color_label)
+        # imsave(input_img+"color_out.png", color_label)
         
         #overlay plot
         #plt.figure(figsize=(8,8))
