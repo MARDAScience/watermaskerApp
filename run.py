@@ -99,8 +99,9 @@ def do_compute(images_list, dims=(768, 1024)):
         print("Land threshold: %f" % (thres_land))
         mask = (pred[:,:,1]>=thres_land).astype('uint8')
 
+        root = input_img.split(".")[0]
         #mask = np.argmax(pred,-1)
-        imsave("greyscale_out_"+str(counter)+".png", mask*255)
+        imsave(root+"greyscale_out_"+str(counter)+".png", mask*255)
         
         class_label_colormap = [
             "#3366CC",
@@ -127,7 +128,7 @@ def do_compute(images_list, dims=(768, 1024)):
             do_alpha=False,
         )
         
-        imsave("color_out_"+str(counter)+".png", color_label)
+        imsave(root+"color_out_"+str(counter)+".png", color_label)
         
         #overlay plot
         #plt.figure(figsize=(8,8))
@@ -136,7 +137,7 @@ def do_compute(images_list, dims=(768, 1024)):
         plt.imshow(color_label, alpha=0.4)
         plt.axis("off")
         plt.margins(x=0, y=0)
-        plt.savefig("overlay_out_"+str(counter)+".png", dpi=300, bbox_inches="tight")    
+        plt.savefig(root+"overlay_out_"+str(counter)+".png", dpi=300, bbox_inches="tight")    
         #return plt 
 
 
